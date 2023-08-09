@@ -1,0 +1,62 @@
+version: "3"
+
+services:
+
+  database:
+    container_name: database
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - '${DB_PORT}:${DB_PORT}'
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      - transcendence
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - transcendence
+
+  backend:
+    container_name: backend
+    build:
+      context: ./back
+      dockerfile: DockerfileBack
+    command: npm run start:prod
+    env_file: .env
+    depends_on:
+      - database
+    ports:
+      - 3001:3001
+    networks:
+      - transcendence
+    
+  frontend:
+    container_name: frontend
+    build:
+      context: ./front
+      dockerfile: DockerfileFront
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+    networks:
+      - transcendence
+
+networks:
+  transcendence:
+    driver: bridge
+
+volumes:
+  db:
+    driver: local
+  back_data:
