@@ -1,0 +1,74 @@
+version: "3"
+
+services:
+  # # nestjs
+  # backend:
+  #   container_name: nestjs
+  #   image: nestjs:latest
+  #   build:
+  #     context: ./back
+  #     # context: ./backend
+  #     #dockerfile: Dockerfile
+  #   depends_on:
+  #     - postgres
+  #   ports:
+  #     - 3000:3000
+  #   env_file:
+  #     - .env
+  #   restart: always
+  #   networks:
+  #     - transcendence
+  #   volumes:
+  #     - ./backend:/app
+  #     - /app/node_modules
+ 
+  # postgresql database // simplifier car separer le volume ne fonctionnait pas - a voir pour la suite 
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    restart: always
+    volumes:
+      - ./database:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env 
+    networks:
+      - transcendence
+    
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - transcendence
+
+   # angular
+  # angular:
+    # image: angular
+    # container_name: angular
+    # build: ./frontend
+    # depends_on:
+      # - backend
+    # ports:
+      # - 3000:3000
+    # env_file:
+      # - .env
+    # restart: always
+    # networks:
+      # - transcendence
+    # volumes:
+
+#volumes
+# volumes:
+#   data:
+#     driver_opts:
+#       type: none
+#       device: ./database 
+
+# #networks
+networks:
+  transcendence:
