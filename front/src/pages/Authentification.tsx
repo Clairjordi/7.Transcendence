@@ -1,4 +1,20 @@
+import { useState } from "react";
+
 export const Authentification = () => {
+  const [login, setLogin] = useState<string>('');
+
+
+  const handleSubmitLogin = () => {
+    const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let loginGenerate = '';
+  
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      loginGenerate += characters.charAt(randomIndex);
+    }
+    setLogin(loginGenerate)
+  }
+
   return (
     <div className="min-h-screen bg-cover bg-fixed bg-deep-purple-accent-700" style={{ backgroundImage: "url('https://raw.githubusercontent.com/tailwindtoolbox/Rainblur-Landing-Page/main/header.png')" }}>
       <div className="sm:py-48 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-56">
@@ -20,10 +36,22 @@ export const Authentification = () => {
                     Became the Master of Pong Game !
                   </p>
                 </div>
-                <div>
+                <div className="flex justify-center gap-20">
                   <button className="group relative h-12 w-48 overflow-hidden rounded-lg bg-teal-500 text-lg shadow">
                     <div className="absolute inset-0 w-3 bg-white transition-all duration-[250ms] ease-out group-hover:w-full"></div>
-                    <a href="https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-948bb2bad23c6e2d58763655bddb9336385afdcd8825fda37610805fdcc9d8f1&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fhome&response_type=code" className="relative text-white group-hover:text-gray-800">LOGIN</a>
+                    <a href="https://api.intra.42.fr/oauth/authorize?client_id=u-s4t2ud-948bb2bad23c6e2d58763655bddb9336385afdcd8825fda37610805fdcc9d8f1&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fhome&response_type=code" 
+                      className="relative text-white group-hover:text-gray-800 text-base leading-tight">
+                      <span className="block">LOGIN</span>
+                      <span className="block">By API 42</span>
+                    </a>
+                  </button>
+                  <button className="group relative h-12 w-48 overflow-hidden rounded-lg bg-teal-500 text-lg shadow" onClick={handleSubmitLogin}>
+                    <div className="absolute inset-0 w-3 bg-white transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                    <a href ={`/login?login=${encodeURIComponent(login)}`} 
+                      className="relative text-white group-hover:text-gray-800 text-base leading-tight">
+                      <span className="block">LOGIN</span>
+                      <span className="block">By Nickname</span>
+                    </a>
                   </button>
                 </div>
               </div>
