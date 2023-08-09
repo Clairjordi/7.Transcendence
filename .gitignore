@@ -1,4 +1,3 @@
 database/
 privateKey/
-node_modules
-node_modules
+back/src/avatars/

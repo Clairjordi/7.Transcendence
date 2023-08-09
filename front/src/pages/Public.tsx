@@ -3,6 +3,7 @@ import { io } from 'socket.io-client';
 import { useParams } from 'react-router-dom';
 import API from '../components/api';
 
+
 interface Match {
     scorePlayerLeft: number;
     scorePlayerRight: number;
