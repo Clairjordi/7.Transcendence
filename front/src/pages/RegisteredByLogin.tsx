@@ -20,6 +20,7 @@ export const PopupRegistered: React.FC<PopupRegisteredProps> = ({ onClose }) => 
         setLogin(event.target.value);
     };
     
+    //registered user 
     const saveUserProfile = async (profile: UserProfile) => {
       try {
         const response = await axios.post('http://localhost:3001/auth/profile', profile);
