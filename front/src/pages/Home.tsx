@@ -15,6 +15,8 @@ export const Home: React.FC = () => {
   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
   const code = urlParams.get('code');
+
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
@@ -56,6 +58,7 @@ export const Home: React.FC = () => {
             login:userProfileData.login,
           }
 
+          setUserProfile(filteredProfile);
           saveUserProfile(filteredProfile)
 
         } else {

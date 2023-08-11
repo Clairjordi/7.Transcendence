@@ -545,8 +545,6 @@ export const Chat = () => {
       setChannelMessages(tabMessage);
     });
 
-
-
     return () => {
       socketChat.off('getDMChannelMessages');
       socketChat.off('nameDMChannel');
@@ -561,7 +559,12 @@ export const Chat = () => {
       setMessageText('');
       setChannelMembers([]);
       setChannelMessages([]);
-      setChanData(undefined);
+      const data = {
+        chanName: '',
+        status: '',
+        password: '',
+      }
+      setChanData(data);
       setUserStatusInChannel('');
     }
 
@@ -856,7 +859,6 @@ export const Chat = () => {
                             </svg>
                           </div>
                         </div>
-
                       </li>
                     )}
                   </ul>
@@ -1023,7 +1025,7 @@ export const Chat = () => {
                           </button>
                         </div>
                         {openDropdownMembers.includes(index) && (
-                          <div id="dropdownDots" className="z-50 overflow-visible absolute top-[23%] right-[7%] divide-y rounded-lg shadow w-40 dark:bg-slate-900 divide-gray-600">
+                          <div id="dropdownDots" className="z-50 overflow-visible absolute top-[23%] right-[7%] divide-y rounded-lg shadow w-40 bg-slate-900 divide-gray-600">
                             <ul className="py-2 text-sm text-gray-200" aria-labelledby="dropdownMenuIconButton">
                               {userStatusInChannel === 'owner' && member.name === nameUser && OptChannel(member.name)}
                               {userStatusInChannel === 'owner' && member.name !== nameUser && OptOwner(member.name)}

@@ -1,41 +1,21 @@
 version: "3"
 
 services:
-  # # nestjs
-  # backend:
-  #   container_name: nestjs
-  #   image: nestjs:latest
-  #   build:
-  #     context: ./back
-  #     # context: ./backend
-  #     #dockerfile: Dockerfile
-  #   depends_on:
-  #     - postgres
-  #   ports:
-  #     - 3000:3000
-  #   env_file:
-  #     - .env
-  #   restart: always
-  #   networks:
-  #     - transcendence
-  #   volumes:
-  #     - ./backend:/app
-  #     - /app/node_modules
- 
-  # postgresql database // simplifier car separer le volume ne fonctionnait pas - a voir pour la suite 
-  postgres:
-    container_name: postgres
+
+  database:
+    container_name: database
     image: postgres:latest
     restart: always
-    volumes:
-      - ./database:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
-      - "5432:5432"
-    env_file:
-      - .env 
+      - '${DB_PORT}:${DB_PORT}'
+    volumes:
+      - db:/var/lib/postgresql/data
     networks:
       - transcendence
-    
 
   adminer:
     container_name: adminer
@@ -46,29 +26,37 @@ services:
     networks:
       - transcendence
 
-   # angular
-  # angular:
-    # image: angular
-    # container_name: angular
-    # build: ./frontend
-    # depends_on:
-      # - backend
-    # ports:
-      # - 3000:3000
-    # env_file:
-      # - .env
-    # restart: always
-    # networks:
-      # - transcendence
-    # volumes:
+  backend:
+    container_name: backend
+    build:
+      context: ./back
+      dockerfile: DockerfileBack
+    command: npm run start:prod
+    env_file: .env
+    depends_on:
+      - database
+    ports:
+      - 3001:3001
+    networks:
+      - transcendence
+    
+  frontend:
+    container_name: frontend
+    build:
+      context: ./front
+      dockerfile: DockerfileFront
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+    networks:
+      - transcendence
 
-#volumes
-# volumes:
-#   data:
-#     driver_opts:
-#       type: none
-#       device: ./database 
-
-# #networks
 networks:
   transcendence:
+    driver: bridge
+
+volumes:
+  db:
+    driver: local
+  back_data:
