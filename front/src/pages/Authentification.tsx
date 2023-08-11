@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 export const Authentification = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false); //pop up login by your own login
  
+  //pop up for registered or login
   const handlePopupRegistered = () => {
     const cookie = Cookies.get('token');
     if (cookie){
