@@ -2,7 +2,7 @@
 
 School Project 42: (in a group - final project)
 
-## Creation of a full stack website in SPA whose aim is to be able to exchange or play with other users :
+### Creation of a full stack website in SPA whose aim is to be able to exchange or play with other users
 
 - AUTHENTIFICATION : API 42 or if you do not have an identifier 42 -> by a login
 - REGISTRATION : choose your Nickname, your Avatar, be unique 
@@ -13,11 +13,15 @@ School Project 42: (in a group - final project)
 
 ## For launch : 
   -  Run `make`
-  -  Got to `https://localhost:3000/`
+  -  Go to `https://localhost:3000/`
 
 ## Buid with:
-  +Typescript
-  +NestJS, 
-  +React, 
-  +Postgresql
-  +Docker
+  + Typescript
+  + NestJS
+  + React
+  + Postgresql
+  + Docker
+
+## Contributors :
+  - [Miketaonjo](https://github.com/miketaonjo)
+  - [Bebalix](https://github.com/Bebalix)
