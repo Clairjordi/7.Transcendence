@@ -22,6 +22,17 @@ School Project 42: (in a group - final project)
   + Postgresql
   + Docker
 
+![screen1-1](https://github.com/Clairjordi/Transcendence/assets/88725985/2a5bf63f-2ef8-4af9-a6cf-ab3031953edc)
+![screen2](https://github.com/Clairjordi/Transcendence/assets/88725985/b50c246e-b1f7-4a75-b320-ed90fb807efa)
+![screen3](https://github.com/Clairjordi/Transcendence/assets/88725985/cbe658ef-6ebc-4c0f-847e-26e5aa64b547)
+![screen4](https://github.com/Clairjordi/Transcendence/assets/88725985/53a0dc9e-be09-4cf9-ac54-a842b156295f)
+![screen5](https://github.com/Clairjordi/Transcendence/assets/88725985/7c7a0076-3abd-4bb2-a41f-62fd53adeb7f)
+![screen6](https://github.com/Clairjordi/Transcendence/assets/88725985/8d9fec49-4f95-4b95-94e7-5a2b95efc8a2)
+
+
+
+
+
 ## Contributors :
   - [Miketaonjo](https://github.com/miketaonjo)
   - [Bebalix](https://github.com/Bebalix)
