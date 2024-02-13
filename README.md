@@ -1,6 +1,6 @@
 # TRANSCENDENCE
 
-School Project 42: (in a group - final project)
+(7/7) School Project 42: (in a group - final project)
 
 ### Creation of a full stack website in SPA whose aim is to be able to exchange or play with other users
 
