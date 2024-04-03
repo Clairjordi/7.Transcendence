@@ -1,6 +1,6 @@
 # TRANSCENDENCE
 
-(7/7) Common core school project 42 (in group - final project of common core)
+(7/7) Common core school project 42 (in group - final project of the common core)
 
 ### Creation of a full stack website in SPA whose aim is to be able to exchange or play with other users
 
