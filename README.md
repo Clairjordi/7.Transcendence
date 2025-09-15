@@ -11,6 +11,9 @@
   - CHAT : create or join a public/private/protected channel, write a DM or invite to play a game of pong other users or view their profile
   - PONG GAME : play the 1972 pong game and more (responsive page)
 
+## Prerequisites :
+  `docker-compose
+
 ## For launch : 
   -  Run `make`
   -  Go to `http://localhost:3000/`
