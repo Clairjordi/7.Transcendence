@@ -13,7 +13,7 @@
 
 ## For launch : 
   -  Run `make`
-  -  Go to `https://localhost:3000/`
+  -  Go to `http://localhost:3000/`
 
 ## Buid with:
   + Typescript
