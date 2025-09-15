@@ -12,7 +12,7 @@
   - PONG GAME : play the 1972 pong game and more (responsive page)
 
 ## Prerequisites :
-  `docker-compose
+  `docker-compose`
 
 ## For launch : 
   -  Run `make`
